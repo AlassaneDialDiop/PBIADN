@@ -354,10 +354,11 @@ export class AppComponent implements OnInit {
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.setRequestHeader("cache-control", "no-cache");
       
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
+ xhr.setRequestHeader('Access-Control-Expose-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
+ xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
+ xhr.setRequestHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE');
+ xhr.setRequestHeader('Access-Control-Allow-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
         xhr.send(data);
       });
     }
@@ -384,10 +385,11 @@ export class AppComponent implements OnInit {
           xhr.setRequestHeader("authorization", authorization );
           xhr.setRequestHeader("cache-control", "no-cache");
           
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
+ xhr.setRequestHeader('Access-Control-Expose-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
+ xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
+ xhr.setRequestHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE');
+ xhr.setRequestHeader('Access-Control-Allow-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
           
           xhr.send(data);
 
@@ -433,12 +435,14 @@ export class AppComponent implements OnInit {
         var authorization = "Bearer "+firstAccessToken;
         xhr.setRequestHeader("Authorization", authorization);
 
-        
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
+
     
+ xhr.setRequestHeader('Access-Control-Expose-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
+ xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
+ xhr.setRequestHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE');
+ xhr.setRequestHeader('Access-Control-Allow-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
+
         xhr.send(dataText);
   
       });
