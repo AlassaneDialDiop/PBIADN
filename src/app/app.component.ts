@@ -3,6 +3,8 @@ import { Component, OnInit, Type } from '@angular/core';
 import * as pbiClient from 'powerbi-client';
 import { TypeElement } from './type-element';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -66,6 +68,7 @@ export class AppComponent implements OnInit {
     pages =[];
     pageActive = 0;
 
+    constructor( private httpClient: HttpClient){}
   ngOnInit() {
 
     this.getList();
@@ -337,56 +340,75 @@ export class AppComponent implements OnInit {
   }
   
   getFirstToken(){
-      return new Promise((resolve, reject) => {
-        var data = "client_id="+this.clientId+"&client_secret="+this.clientSecretEncoded
-        +"&resource="+this.resourceEncoded+"&grant_type="+this.grantType+"&username="+this.usernameEncoded
-        +"&password="+this.password+"&scope="+this.scope;
 
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = 'text';
-        xhr.withCredentials = true;
-        xhr.addEventListener("readystatechange", function () {
-          if (this.readyState === 4) {
-            resolve(this.responseText);
-          }
-        })
-        xhr.open("POST", "https://login.microsoftonline.com/8c645637-2ab2-41e5-b76a-68592e20eebb/oauth2/token");
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        xhr.setRequestHeader("cache-control", "no-cache");
-        xhr.send(data);
-      });
+    return new Promise((resolve, reject) => {
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/x-www-form-urlencoded',
+          'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
+          'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
+          'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
+           'Access-Control-Allow-Credentials': "true"
+        })};
+      
+      const formData = new FormData();
+      formData.append('client_id', this.clientId);
+      formData.append('client_secret',this.clientSecretEncoded);
+      formData.append('resource',this.resourceEncoded);
+      formData.append('grant_type',this.grantType);
+      formData.append('username', this.usernameEncoded);
+      formData.append('password',this.password);
+      formData.append('scope',this.scope);
+      
+      this.httpClient.post( "https://login.microsoftonline.com/8c645637-2ab2-41e5-b76a-68592e20eebb/oauth2/token",formData,httpOptions)
+                          .subscribe(
+                              (res) => {
+                                  
+                                  console.log(res);
+                                  resolve(res);
+                              },
+                              err => console.log(err)
+                          );
+                            });
     }
     
   getUrls(firstAccessToken: string, typeSelected:string){
         return new Promise((resolve, reject) => {
           var urlGet = "https://api.powerbi.com/v1.0/myorg/groups/"+this.groupId+"/"+typeSelected+"s";
-          var data = null;
           var authorization = "Bearer "+firstAccessToken;
           console.log(authorization);
 
-          var xhr = new XMLHttpRequest();
-          xhr.withCredentials = true;
           
-          xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-              console.log(this.responseText);
-              resolve(this.responseText);
-            }
-          });
-          
-          xhr.open("GET", urlGet);
-
-          xhr.setRequestHeader("authorization", authorization );
-          xhr.setRequestHeader("cache-control", "no-cache");
-          
-          xhr.send(data);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/x-www-form-urlencoded',
+          'Authorization': authorization,
+          'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
+          'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
+          'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
+           'Access-Control-Allow-Credentials': "true"
+        })};
+      
+      this.httpClient.get( urlGet,httpOptions)
+                          .subscribe(
+                              (res) => {
+                                  
+                                  console.log(res);
+                                  resolve(res);
+                              },
+                              err => console.log(err)
+                          );
 
         });
     }
   
   getSecondToken(firstAccessToken:string){
       
-      return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+
         var dataText:string = '{'+'\n'
           +'\"data\":'+'\n'
           +'{'+'\n'
@@ -407,23 +429,33 @@ export class AppComponent implements OnInit {
         console.log(dataText);
         var data = JSON.parse(dataText);
         console.log(data);
-        var xhr = new XMLHttpRequest();
-     //   xhr.responseType = 'text';
-       // xhr.withCredentials = true;
-  
-        xhr.addEventListener("readystatechange", function () {
-          if (this.readyState === 4) {
-              resolve(this.responseText);
-          }
-        })
-  
-        xhr.open("POST", 'https://api.powerbi.com/v1.0/myorg/groups/'+this.groupId+'/'+this.type+'s/'+this.typeId+'/GenerateToken');
-        xhr.setRequestHeader("Content-type", "application/json");
-        xhr.setRequestHeader("Accept", "application/json");
+
+        
         var authorization = "Bearer "+firstAccessToken;
-        xhr.setRequestHeader("Authorization", authorization);
-        xhr.send(dataText);
-  
+
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type':  'application/json',
+            'Authorization': authorization,
+            'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
+            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
+            'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
+             'Access-Control-Allow-Credentials': "true"
+          })};
+
+          var urlPost = 'https://api.powerbi.com/v1.0/myorg/groups/'+this.groupId+'/'+this.type+'s/'+this.typeId+'/GenerateToken';
+        
+        
+        this.httpClient.post( urlPost,data,httpOptions)
+                            .subscribe(
+                                (res) => {
+                                    
+                                    console.log(res);
+                                    resolve(res);
+                                },
+                                err => console.log(err)
+                            );
       });
       }
 
