@@ -320,6 +320,7 @@ export class AppComponent implements OnInit {
         str = str.toLowerCase();
         searchStr = searchStr.toLowerCase();
     }
+    console.log('---');
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
         indices.push(index);
         startIndex = index + searchStrLen;
