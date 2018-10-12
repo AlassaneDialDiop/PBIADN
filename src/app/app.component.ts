@@ -353,6 +353,11 @@ export class AppComponent implements OnInit {
         xhr.open("POST", "https://login.microsoftonline.com/8c645637-2ab2-41e5-b76a-68592e20eebb/oauth2/token");
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.setRequestHeader("cache-control", "no-cache");
+      
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
         xhr.send(data);
       });
     }
@@ -378,6 +383,11 @@ export class AppComponent implements OnInit {
 
           xhr.setRequestHeader("authorization", authorization );
           xhr.setRequestHeader("cache-control", "no-cache");
+          
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
           
           xhr.send(data);
 
@@ -422,6 +432,13 @@ export class AppComponent implements OnInit {
         xhr.setRequestHeader("Accept", "application/json");
         var authorization = "Bearer "+firstAccessToken;
         xhr.setRequestHeader("Authorization", authorization);
+
+        
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
+    
         xhr.send(dataText);
   
       });
