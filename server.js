@@ -5,6 +5,7 @@ const path = require('path');
 const Cors = require('cors');
 const app = express();
 
+app.use(Cors());
 
 // Serve only the static files form the dist directory
 // Replace the '/dist/<to_your_project_name>'
@@ -20,7 +21,6 @@ app.use(function(req, res, next){
   next();
 })*/
 
-app.use(Cors());
 
 app.get('*', function(req,res) {
   // Replace the '/dist/<to_your_project_name>/index.html'
