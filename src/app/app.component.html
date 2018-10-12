@@ -1,110 +1,110 @@
 
 <div id="header">
-  <div class="row">
-      <div class="col-xs-12 col-sm-3 col-lg-3">
-          <img src="../assets/img/adncorpTransparent.png"/> 
-      </div>
-      <div class="col-xs-12 col-sm-9 col-lg-9">
-          <h1>
-              Power BI Embedded Test
-          </h1>
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 col-lg-2">
+            <img src="../assets/img/adncorpTransparent.png"/> 
+        </div>
+        <div class="col-xs-12 col-sm-9 col-lg-10">
+            <h1>
+                Power BI Embedded Test
+            </h1>
+        </div>
+    </div>
 </div>
 <div id="main" class="row">
 
-          <div  id="sidebar" class="container" class="col-xs-12 col-sm-3 col-lg-3">
-                  <div class="row" id="divType">
-              
-                  <div id="divForm">
-                          <hr>
-                          <div class="container">
-                              <button type="button" class="btn btn-default container-fluid" (click)="mod()" [disabled]="mode == 'view'">            
-                                  <img src="../assets/icons/viewIcon.png" class="iconLittle">
-                                  View
-                                  <img src="../assets/icons/verifyIcon.png" class="iconLittle" *ngIf="mode == 'view'">
-                              </button>
-                          </div>
-                          <div class="container">
-                              <button type="button" class="btn btn-default container-fluid" (click)="mod()" [disabled]="mode == 'edit'">           
-                                  <img src="../assets/icons/editIcon.png" class="iconLittle">
-                                  Edit
-                                  <img src="../assets/icons/verifyIcon.png" class="iconLittle" *ngIf="mode == 'edit'">
-                              </button>
-                          </div>
-                          <hr>
-                          <button type="button" class="btn btn-success container" (click)="updatePage()">Mettre à jour</button>
-                          <hr>
-                     </div>
-                      <div *ngFor="let typeSelected of allTypes" [ngClass]="{'bluredLabel': (typeSelected.name !== type),
-                      'selectedLabel': (typeSelected.name == type), 'container':true}">
+            <div  id="sidebar" class="container" class="col-xs-12 col-sm-3 col-lg-2">
+                    <div class="row" id="divType">
+                
+                    <div id="divForm">
+                            <hr>
+                            <div class="container">
+                                <button type="button" class="btn btn-default container-fluid" (click)="mod()" [disabled]="mode == 'view'">            
+                                    <img src="../assets/icons/viewIcon.png" class="iconLittle">
+                                    View
+                                    <img src="../assets/icons/verifyIcon.png" class="iconLittle" *ngIf="mode == 'view'">
+                                </button>
+                            </div>
+                            <div class="container">
+                                <button type="button" class="btn btn-default container-fluid" (click)="mod()" [disabled]="mode == 'edit'">           
+                                    <img src="../assets/icons/editIcon.png" class="iconLittle">
+                                    Edit
+                                    <img src="../assets/icons/verifyIcon.png" class="iconLittle" *ngIf="mode == 'edit'">
+                                </button>
+                            </div>
+                            <hr>
+                            <button type="button" class="btn btn-success container" (click)="updatePage()">Mettre à jour</button>
+                            <hr>
+                       </div>
+                        <div *ngFor="let typeSelected of allTypes" [ngClass]="{'bluredLabel': (typeSelected.name !== type),
+                        'selectedLabel': (typeSelected.name == type), 'container':true}">
 
-                          <span [attr.for]="typeSelected.name ">
-                              <label for="{{ typeSelected.name  }}" style="width:100%;">
-                                  <div>
-                                      
-                                  {{ typeSelected.name }}
-                                  <input type="checkbox"
-                                  style="display:none;"
-                                  class="filled-in"
-                                  id="{{ typeSelected.name  }}"
-                                  [value]="typeSelected.name "
-                                  [checked]="hasType(typeSelected.name )"
-                                  (change)="selectTypePerso($event, typeSelected.name )"/>
-                                  
-                                  <img src={{typeSelected.img}} class="icon">
+                            <span [attr.for]="typeSelected.name ">
+                                <label for="{{ typeSelected.name  }}" style="width:100%;">
+                                    <div>
+                                        
+                                    {{ typeSelected.name }}
+                                    <input type="checkbox"
+                                    style="display:none;"
+                                    class="filled-in"
+                                    id="{{ typeSelected.name  }}"
+                                    [value]="typeSelected.name "
+                                    [checked]="hasType(typeSelected.name )"
+                                    (change)="selectTypePerso($event, typeSelected.name )"/>
+                                    
+                                    <img src={{typeSelected.img}} class="icon">
 
-                                  </div>
-                              </label>
-                          </span>
+                                    </div>
+                                </label>
+                            </span>
 <!---->
-                          <div  class="row" *ngFor="let typeElementList of typeElementLists | keyvalue">
-                              <div
-                              *ngFor="let typeElement of typeElementList.value"
-              
-                              [ngClass]="{'typeElement': true, 'bluredLabel': (typeElement.id !== typeId),
-                              'selectedLabelLight': (typeElement.id == typeId)}">
-              
-                                  <span *ngIf="typeElement.type == typeSelected.name" [attr.for]="typeElement.id" style="width: 100%;">
-                                      <label for="{{ typeElement.id }}" class="labelTypeElement">
-                                          <div>
-                                          {{ typeElement.name }}
-                                          <input type="checkbox"
-                                          style="display:none;"
-                                          class="filled-in"
-                                          id="{{ typeElement.id }}"
-                                          [value]="typeElement.id"
-                                          [checked]="hasTypeElement(typeElement.id)"
-                                          (change)="selectTypeElement(typeElement)"/>
-                                          </div>
-                                      </label>
-                                  </span> 
-                              </div>
-                          </div>
-                          <hr>
-                      </div>
-                  <!---->
-                  </div>
-          </div>
-          <div id="content" class="col-xs-12 col-sm-9 col-lg-9">
-              <div id="shown">
-                      <span id="name" class="shownInvisible">
-                              {{shown}}
-                      </span>
-              </div>
-              <div id="pages" class="scrolling-wrapper">
-                      <div *ngFor="let page of pages" class="card">
-                          <button (click)="changePage(pages.indexOf(page))" [disabled]= "pages[pageActive] === page">
-                              {{ page }}
-                          </button>
-                      </div>
-              </div>
-              <div  id="displayContainer" class=" invisible">
-                  <div id="reportsContainer" class="reports-container"></div>
-              </div>
-              <div id="loadingContainer">
-                  <img src="../assets/img/adnLoading.svg" alt="" width="100%">
-              </div>
-          </div>
-      </div>
+                            <div  class="row" *ngFor="let typeElementList of typeElementLists | keyvalue">
+                                <div
+                                *ngFor="let typeElement of typeElementList.value"
+                
+                                [ngClass]="{'typeElement': true, 'bluredLabel': (typeElement.id !== typeId),
+                                'selectedLabelLight': (typeElement.id == typeId)}">
+                
+                                    <span *ngIf="typeElement.type == typeSelected.name" [attr.for]="typeElement.id" style="width: 100%;">
+                                        <label for="{{ typeElement.id }}" class="labelTypeElement">
+                                            <div>
+                                            {{ typeElement.name }}
+                                            <input type="checkbox"
+                                            style="display:none;"
+                                            class="filled-in"
+                                            id="{{ typeElement.id }}"
+                                            [value]="typeElement.id"
+                                            [checked]="hasTypeElement(typeElement.id)"
+                                            (change)="selectTypeElement(typeElement)"/>
+                                            </div>
+                                        </label>
+                                    </span> 
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    <!---->
+                    </div>
+            </div>
+            <div id="content" class="col-xs-12 col-sm-9 col-lg-10">
+                <div id="shown">
+                        <span id="name" class="shownInvisible">
+                                {{shown}}
+                        </span>
+                </div>
+                <div id="pages" class="scrolling-wrapper">
+                        <div *ngFor="let page of pages" class="card">
+                            <button (click)="changePage(pages.indexOf(page))" [disabled]= "pages[pageActive] === page">
+                                {{ page }}
+                            </button>
+                        </div>
+                </div>
+                <div  id="displayContainer" class=" invisible">
+                    <div id="reportsContainer" class="reports-container"></div>
+                </div>
+                <div id="loadingContainer">
+                    <img src="../assets/img/adnLoading.svg" alt="" width="100%">
+                </div>
+            </div>
+        </div>
 <router-outlet></router-outlet>

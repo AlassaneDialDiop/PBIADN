@@ -7,7 +7,7 @@ const app = express();
 
 
 app.use(Cors({
-  origin: 'https://pbiadnpoc.herokuapp.com',
+  origin: 'http://localhost:3333',
   credentials: true
 }));
 
@@ -20,4 +20,6 @@ app.get('*', function(req,res) {
   res.sendFile(path.join(__dirname+ '/dist/pbiadnpoc/index.html'));
 });
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(3333,() => {
+  console.log("Server is listening on port 3000")
+});
