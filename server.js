@@ -7,7 +7,7 @@ const app = express();
 
 
 app.use(Cors({
-  origin: 'http://localhost:3333',
+  origin: 'https://pbiadnpoc.herokuapp.com',
   credentials: true
 }));
 

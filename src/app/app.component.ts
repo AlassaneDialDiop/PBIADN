@@ -355,7 +355,7 @@ export class AppComponent implements OnInit {
         xhr.setRequestHeader("cache-control", "no-cache");
       
  xhr.setRequestHeader('Access-Control-Expose-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
- xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
+ xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://pbiadnpoc.herokuapp.com');
  xhr.setRequestHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE');
  xhr.setRequestHeader('Access-Control-Allow-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
   xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
@@ -386,7 +386,7 @@ export class AppComponent implements OnInit {
           xhr.setRequestHeader("cache-control", "no-cache");
           
  xhr.setRequestHeader('Access-Control-Expose-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
- xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
+ xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://pbiadnpoc.herokuapp.com');
  xhr.setRequestHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE');
  xhr.setRequestHeader('Access-Control-Allow-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
   xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
@@ -438,7 +438,7 @@ export class AppComponent implements OnInit {
 
     
  xhr.setRequestHeader('Access-Control-Expose-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
- xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
+ xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://pbiadnpoc.herokuapp.com');
  xhr.setRequestHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE');
  xhr.setRequestHeader('Access-Control-Allow-Headers', 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization');
   xhr.setRequestHeader('Access-Control-Allow-Credentials', "true");
