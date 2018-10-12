@@ -6,7 +6,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 @Injectable()
 export class HttpsRequestInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const dupReq = req.clone({ headers: req.headers.set('Access-Control-Allow-Origin','*') });
+    const dupReq = req.clone({ headers: req.headers.set('Access-Control-Allow-Origin','https://login.microsoftonline.com/') });
     return next.handle(dupReq);
   }
 };
