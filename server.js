@@ -9,7 +9,7 @@ const Cors = require('cors');
 
 
 app.use(Cors({
-  origin: 'http://localhost:3000',
+  origin: null,
   credentials: true
 }));
 
