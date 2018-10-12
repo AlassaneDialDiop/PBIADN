@@ -310,7 +310,7 @@ export class AppComponent implements OnInit {
     
   }
 
-  getIndicesOf(searchStr, str, caseSensitive = true) {
+  getIndicesOf(searchStr: string, str: string, caseSensitive: boolean = true) {
     var searchStrLen = searchStr.length;
     if (searchStrLen == 0) {
         return [];
