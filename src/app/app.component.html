@@ -21,14 +21,14 @@
                             <div class="container">
                                 <button type="button" class="btn btn-default container-fluid" (click)="mod()" [disabled]="mode == 'view'">            
                                     <img src="../assets/icons/viewIcon.png" class="iconLittle">
-                                    View
+                                    Mode lecture
                                     <img src="../assets/icons/verifyIcon.png" class="iconLittle" *ngIf="mode == 'view'">
                                 </button>
                             </div>
                             <div class="container">
                                 <button type="button" class="btn btn-default container-fluid" (click)="mod()" [disabled]="mode == 'edit'">           
                                     <img src="../assets/icons/editIcon.png" class="iconLittle">
-                                    Edit
+                                    Mode édition
                                     <img src="../assets/icons/verifyIcon.png" class="iconLittle" *ngIf="mode == 'edit'">
                                 </button>
                             </div>
