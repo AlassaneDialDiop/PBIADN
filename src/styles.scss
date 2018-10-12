@@ -23,13 +23,13 @@ label {
 
     img { 
         padding: 1rem;
-        height: 6rem;
+        height: 4rem;
     }
 
     h1 {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.25rem;
     }
 }
 
@@ -53,7 +53,7 @@ label {
     color: $black;
    }
 #divType {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .typeElement {
     width: 100%;
@@ -61,16 +61,16 @@ label {
 .labelTypeElement {
     width: 100%;
     height: 100%;
-    padding:1rem; 
-    font-size: 1.5rem;
-    border-bottom: solid 0.1rem $greyB;
+    padding: 0.75rem; 
+    font-size: 1rem;
+    border-bottom: solid 0.05rem $greyB;
 
 }
 .icon {
-    width: 3rem;
+    width: 2.25rem;
 }
 .iconLittle {
-    width: 1.5rem;
+    width: 1.125rem;
 }
 #divForm {
     width: 100%;
@@ -91,7 +91,7 @@ label {
     color:  $white; 
     width: 100%;
     margin: 0 auto;
-    font-size: 4rem;
+    font-size: 2.5rem;
     text-align: center; 
 }
 
@@ -104,7 +104,7 @@ label {
     color: $adnblue;
  //   padding-top: 5rem;
     min-height: 100%;
-    border: solid $greyC 5px;
+    border: solid $greyC 0.5rem;
 }
 
 #content {
@@ -117,8 +117,8 @@ body {
 }
 
 #main {
-    border-top: solid $white 2px;
-    border-bottom: solid $white 2px;
+    border-top: solid $white 1rem;
+    border-bottom: solid $white 1rem;
 }
 .scrolling-wrapper {
     overflow-x: auto;
@@ -128,14 +128,14 @@ body {
     .card {
       display: inline-block;
       background: transparent;
-      padding-left: 3rem;
+      padding-left: 2.25rem;
 
       button {
-          border-radius: 3rem;
+          border-radius: 2rem;
           font-size: 1.5rem;
-          padding-left: 2rem;
-          padding-right: 2rem;
-          height: 4rem;
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+          height: 3rem;
           background: $greyL;
           color: $black;
       }
@@ -144,17 +144,17 @@ body {
 
   /* width */
 ::-webkit-scrollbar {
-    height: 1rem;;
+    height: 0.5rem;;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 2.5rem grey; 
-    border-radius: 2.5px;
+    box-shadow: inset 0 0 2rem grey; 
+    border-radius: 1rem;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: $adnblue; 
-    border-radius: 2.5rem;
+    border-radius: 2rem;
 }
