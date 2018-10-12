@@ -16,11 +16,11 @@ app.use(Cors({
 
 // Serve only the static files form the dist directory
 // Replace the '/dist/<to_your_project_name>'
-app.use(express.static(__dirname + '/dist/pbiadnpoc'));
+app.use(express.static(__dirname + '/dist/pbiadn'));
 
 app.get('*', function(req,res) {
   // Replace the '/dist/<to_your_project_name>/index.html'
-  res.sendFile(path.join(__dirname+ '/dist/pbiadnpoc/index.html'));
+  res.sendFile(path.join(__dirname+ '/dist/pbiadn/index.html'));
 });
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);

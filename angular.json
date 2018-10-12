@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pbiadnpoc": {
+    "pbiadn": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pbiadnpoc",
+            "outputPath": "dist/pbiadn",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pbiadnpoc:build"
+            "browserTarget": "pbiadn:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pbiadnpoc:build:production"
+              "browserTarget": "pbiadn:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pbiadnpoc:build"
+            "browserTarget": "pbiadn:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "pbiadnpoc-e2e": {
+    "pbiadn-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -109,11 +109,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pbiadnpoc:serve"
+            "devServerTarget": "pbiadn:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pbiadnpoc:serve:production"
+              "devServerTarget": "pbiadn:serve:production"
             }
           }
         },
@@ -129,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "pbiadnpoc"
+  "defaultProject": "pbiadn"
 }
