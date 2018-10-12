@@ -8,14 +8,6 @@ const app = express();
 // Replace the '/dist/<to_your_project_name>'
 app.use(express.static(__dirname + '/dist/pbiadnpoc'));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", '*');
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-  next();
-});
-
 app.get('*', function(req,res) {
   // Replace the '/dist/<to_your_project_name>/index.html'
   res.sendFile(path.join(__dirname+ '/dist/pbiadnpoc/index.html'));

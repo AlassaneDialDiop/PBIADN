@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-//import {InterceptorModule} from './interceptor.module';
+import {InterceptorModule} from './interceptor.module';
 import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-   // InterceptorModule,
+   InterceptorModule,
          FormsModule,
     HttpClientModule
   ],
