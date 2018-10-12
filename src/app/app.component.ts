@@ -346,6 +346,7 @@ export class AppComponent implements OnInit {
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/x-www-form-urlencoded',
+          'cache-control': 'no-cache',
           'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
           'Access-Control-Allow-Origin': 'http://localhost:3000',
           'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
@@ -361,8 +362,12 @@ export class AppComponent implements OnInit {
       formData.append('username', this.usernameEncoded);
       formData.append('password',this.password);
       formData.append('scope',this.scope);
+
+      const formDataa =  "client_id="+this.clientId+"&client_secret="+this.clientSecretEncoded
+      +"&resource="+this.resourceEncoded+"&grant_type="+this.grantType+"&username="+this.usernameEncoded
+      +"&password="+this.password+"&scope="+this.scope;
       
-      this.httpClient.post( "https://login.microsoftonline.com/8c645637-2ab2-41e5-b76a-68592e20eebb/oauth2/token",formData,httpOptions)
+      this.httpClient.post( "https://login.microsoftonline.com/8c645637-2ab2-41e5-b76a-68592e20eebb/oauth2/token",formDataa,httpOptions)
                           .subscribe(
                               (res) => {
                                   
