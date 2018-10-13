@@ -310,35 +310,30 @@ export class AppComponent implements OnInit {
     
   }
 
-  getIndicesOf(searchStr: string, str: String, caseSensitive: boolean = true) {
-
+  getIndicesOf(searchStr: string, str: string, caseSensitive: boolean = true) {
     var searchStrLen = searchStr.length;
     if (searchStrLen == 0) {
         return [];
     }
-    var startIndex = 0;
-    var index = 0;
-    var indices = [];
+    var startIndex = 0, index, indices = [];
     if (!caseSensitive) {
         str = str.toLowerCase();
         searchStr = searchStr.toLowerCase();
     }
-    
-    str = str.toString();
-
-    console.log('-*-'+ str);
+    console.log('---');
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
-      console.log('***');
         indices.push(index);
         startIndex = index + searchStrLen;
     }
     return indices;
 }
-  getValueFromJson(source:String, motCle:string, limite:string){
-    console.log('Source:', source);
+  getValueFromJson(source:Object, motCle:string, limite:string){
+
+    console.log('Source:', source.toString());
     console.log('Mot Cle:', motCle);
     console.log('Limite:', limite);
-    const store = source;
+
+    const store = source.toString();
     const length = motCle.length;
     const debut = this.getIndicesOf(motCle, store);
     const fin = this.getIndicesOf(limite, store);
