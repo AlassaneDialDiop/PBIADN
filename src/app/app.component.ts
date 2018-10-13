@@ -419,7 +419,7 @@ export class AppComponent implements OnInit {
                         +'{'+'\n'
                           +'\"username\": \"'+this.appUsername+'\",'+'\n'
                           +'\"roles\": [\"'+this.role+'\"],'+'\n'
-                          +'\"datasets\": [\"'+this.datasetId+'\"]'+'\n'
+                       //   +'\"datasets\": [\"'+this.datasetId+'\"]'+'\n'
                         //  +'\"customData: "MyCustomData"'
                           +'}'+'\n'
                           +']'+'\n'
