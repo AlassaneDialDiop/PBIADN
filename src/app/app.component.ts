@@ -311,8 +311,6 @@ export class AppComponent implements OnInit {
   }
 
   getIndicesOf(searchStr: string, str: String, caseSensitive: boolean = true) {
-    
-    str = str.toString();
 
     var searchStrLen = searchStr.length;
     if (searchStrLen == 0) {
@@ -322,9 +320,12 @@ export class AppComponent implements OnInit {
     var index = 0;
     var indices = [];
     if (!caseSensitive) {
-        str = str.toLowerCase().toString();
-        searchStr = searchStr.toLowerCase().toString();
+        str = str.toLowerCase();
+        searchStr = searchStr.toLowerCase();
     }
+    
+    str = str.toString();
+
     console.log('-*-'+ str);
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
       console.log('***');
@@ -334,6 +335,9 @@ export class AppComponent implements OnInit {
     return indices;
 }
   getValueFromJson(source:String, motCle:string, limite:string){
+    console.log('Source:', source);
+    console.log('Mot Cle:', motCle);
+    console.log('Limite:', limite);
     const store = source;
     const length = motCle.length;
     const debut = this.getIndicesOf(motCle, store);
