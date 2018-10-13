@@ -322,7 +322,7 @@ export class AppComponent implements OnInit {
         str = str.toLowerCase();
         searchStr = searchStr.toLowerCase();
     }
-    console.log('---'+ (typeof str));
+    console.log('---'+ (typeof str.toString()));
 
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
       console.log('***');
