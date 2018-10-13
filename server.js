@@ -9,7 +9,7 @@ const Cors = require('cors');
 
 
 app.use(Cors({
-  origin: "*",
+  origin: "https://pbiadn.herokuapp.com",
   credentials: true
 }));
 
