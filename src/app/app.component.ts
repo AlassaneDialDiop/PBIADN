@@ -203,15 +203,7 @@ export class AppComponent implements OnInit {
                             let finalAccessToken = this.getValueFromJson(rest,"token","tokenId")[0];
                             this.getReports(finalAccessToken);
                                                                       }
-                                                  )
-/*
-                          this.getUrls(this.firstToken).then((rest: string) => { 
-                            console.log(rest);
-                            console.log(this.getValueFromJson(rest, 'embedUrl', 'isOwnedByMe'));
-                                                                                this.getReportsInFrame(this.getValueFromJson(rest, 'embedUrl', 'isOwnedByMe'));
-                                                                      }
-                                                  )
-                                                  */
+                                                  );
                       }
       );
   }
@@ -349,7 +341,7 @@ export class AppComponent implements OnInit {
           'Content-Type':  'application/x-www-form-urlencoded',
           'cache-control': 'no-cache',
           'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
-          'Access-Control-Allow-Origin': 'http://localhost:3000',
+          'Access-Control-Allow-Origin': 'https://pbiadn.herokuapp.com/',
           'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
           'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
            'Access-Control-Allow-Credentials': "true"
@@ -393,7 +385,7 @@ export class AppComponent implements OnInit {
           'Content-Type':  'application/x-www-form-urlencoded',
           'Authorization': authorization,
           'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
-          'Access-Control-Allow-Origin': 'http://localhost:3000',
+          'Access-Control-Allow-Origin': 'https://pbiadn.herokuapp.com/',
           'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
           'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
            'Access-Control-Allow-Credentials': "true"
@@ -446,7 +438,7 @@ export class AppComponent implements OnInit {
             'Content-Type':  'application/json',
             'Authorization': authorization,
             'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
-            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Origin': 'https://pbiadn.herokuapp.com/',
             'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
             'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
              'Access-Control-Allow-Credentials': "true"
