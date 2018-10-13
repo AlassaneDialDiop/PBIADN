@@ -402,9 +402,10 @@ export class AppComponent implements OnInit {
       this.httpClient.get( urlGet,httpOptions)
                           .subscribe(
                               (res) => {
-                                  
-                                  console.log(res);
-                                  resolve(res);
+                            
+                                const resString = JSON.stringify(res);
+                                console.log(resString);
+                                resolve(resString);
                               },
                               err => console.log(err)
                           );
@@ -457,9 +458,9 @@ export class AppComponent implements OnInit {
         this.httpClient.post( urlPost,data,httpOptions)
                             .subscribe(
                                 (res) => {
-                                    
-                                    console.log(res);
-                                    resolve(res);
+                                  const resString = JSON.stringify(res);
+                                  console.log(resString);
+                                  resolve(resString);
                                 },
                                 err => console.log(err)
                             );
