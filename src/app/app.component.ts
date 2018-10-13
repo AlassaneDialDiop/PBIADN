@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
    
   appUsername = "youssef";
   // appUsername = "alassane";
-   role = "compte1";
+   role = "groupe";
   // usernameEncoded= "alassane.diop%40adncorp.com";
    usernameEncoded= "youssef.hassani%40adncorp.com";
    //password = "AdnADD2018";
