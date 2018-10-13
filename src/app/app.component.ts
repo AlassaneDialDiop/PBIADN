@@ -311,6 +311,9 @@ export class AppComponent implements OnInit {
   }
 
   getIndicesOf(searchStr: string, str: String, caseSensitive: boolean = true) {
+    
+    str = str.toString();
+    
     var searchStrLen = searchStr.length;
     if (searchStrLen == 0) {
         return [];
@@ -322,8 +325,7 @@ export class AppComponent implements OnInit {
         str = str.toLowerCase();
         searchStr = searchStr.toLowerCase();
     }
-    console.log('---'+ (typeof str.toString()));
-
+    console.log('---');
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
       console.log('***');
         indices.push(index);
