@@ -310,18 +310,21 @@ export class AppComponent implements OnInit {
     
   }
 
-  getIndicesOf(searchStr: string, str: string, caseSensitive: boolean = true) {
+  getIndicesOf(searchStr: string, str: String, caseSensitive: boolean = true) {
     var searchStrLen = searchStr.length;
     if (searchStrLen == 0) {
         return [];
     }
-    var startIndex = 0, index, indices = [];
+    var startIndex = 0, 
+    var index = 0;
+    var indices = [];
     if (!caseSensitive) {
         str = str.toLowerCase();
         searchStr = searchStr.toLowerCase();
     }
     console.log('---');
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+      console.log('***');
         indices.push(index);
         startIndex = index + searchStrLen;
     }
