@@ -330,7 +330,7 @@ export class AppComponent implements OnInit {
     }
     return indices;
 }
-  getValueFromJson(source:string, motCle:string, limite:string){
+  getValueFromJson(source:String, motCle:string, limite:string){
     const store = source;
     const length = motCle.length;
     const debut = this.getIndicesOf(motCle, store);
