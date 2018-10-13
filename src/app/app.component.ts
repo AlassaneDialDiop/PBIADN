@@ -315,7 +315,7 @@ export class AppComponent implements OnInit {
     if (searchStrLen == 0) {
         return [];
     }
-    var startIndex = 0, 
+    var startIndex = 0;
     var index = 0;
     var indices = [];
     if (!caseSensitive) {
