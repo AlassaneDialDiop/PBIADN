@@ -18,6 +18,12 @@ app.use(Cors({
 // Replace the '/dist/<to_your_project_name>'
 app.use(express.static(__dirname + '/dist/pbiadn'));
 
+app.use(Cors({
+  origin: "https://pbiadn.herokuapp.com",
+  credentials: true
+}));
+
+
 app.get('*', function(req,res) {
   // Replace the '/dist/<to_your_project_name>/index.html'
   res.sendFile(path.join(__dirname+ '/dist/pbiadn/index.html'));
