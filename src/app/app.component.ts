@@ -341,7 +341,7 @@ export class AppComponent implements OnInit {
           'Content-Type':  'application/x-www-form-urlencoded',
           'cache-control': 'no-cache',
           'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
-          'Access-Control-Allow-Origin': 'https://pbiadn.herokuapp.com',
+          'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
           'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
            'Access-Control-Allow-Credentials': "true"
@@ -385,7 +385,7 @@ export class AppComponent implements OnInit {
           'Content-Type':  'application/x-www-form-urlencoded',
           'Authorization': authorization,
           'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
-          'Access-Control-Allow-Origin': 'https://pbiadn.herokuapp.com',
+          'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
           'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
            'Access-Control-Allow-Credentials': "true"
@@ -438,7 +438,7 @@ export class AppComponent implements OnInit {
             'Content-Type':  'application/json',
             'Authorization': authorization,
             'Access-Control-Expose-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
-            'Access-Control-Allow-Origin': 'https://pbiadn.herokuapp.com',
+            'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'HEAD, GET, POST, OPTIONS, PUT, PATCH, DELETE',
             'Access-Control-Allow-Headers': 'Access-Control-*, Origin, X-Requested-With, Content-Type, Accept, Authorization,cache-control',
              'Access-Control-Allow-Credentials': "true"

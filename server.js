@@ -4,24 +4,9 @@ const path = require('path');
 
 const app = express();
 
-
-const Cors = require('cors');
-
-
-app.use(Cors({
-  origin: "https://pbiadn.herokuapp.com",
-  credentials: true
-}));
-
-
 // Serve only the static files form the dist directory
 // Replace the '/dist/<to_your_project_name>'
 app.use(express.static(__dirname + '/dist/pbiadn'));
-
-app.use(Cors({
-  origin: "https://pbiadn.herokuapp.com",
-  credentials: true
-}));
 
 
 app.get('*', function(req,res) {
